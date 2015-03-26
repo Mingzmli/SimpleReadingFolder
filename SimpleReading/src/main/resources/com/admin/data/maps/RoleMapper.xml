@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.reading.admin.mapper.RoleMapper">
+
+	<resultMap type="RoleEntity" id="roleResultMap">
+		<id property="id" column="RoleId" />
+		<result property="roleLevel" column="RoleLevel" />
+		<result property="roleName" column="RoleName" />
+		<collection property="userEnties" column="RoleLevel"
+			ofType="UserEntity"
+			select="com.simple.reading.admin.mapper.UserMapper.getUserByRoleLevel" />
+	</resultMap>
+
+	<select id="getRoleByLevel" parameterType="int" resultMap="roleResultMap">
+
+		SELECT * from roles
+		WHERE RoleLevel = #{level}
+	</select>
+
+	<select id="getRoleAll" resultType="RoleEntity">
+		SELECT * from roles;
+	</select>
+
+	<insert id="addRole" parameterType="RoleEntity">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select uuid()
+		</selectKey>
+		INSERT INTO
+		roles (RoleId,
+		RoleLevel,
+		RoleName)
+		VALUES (#{id},
+		#{roleLevel},
+		#{roleName})
+	</insert>
+
+
+	<update id="updateRole" parameterType="RoleEntity">
+		UPDATE roles
+		SET
+		roles.RoleLevel = #{roleLevel},
+		roles.RoleName = #{roleName}
+		WHERE
+		roles.RoleId = #{id};
+	</update>
+
+
+	<delete id="deleteRole" parameterType="RoleEntity">
+		DELETE FROM roles WHERE
+		RoleId = #{id}
+	</delete>
+
+
+</mapper>

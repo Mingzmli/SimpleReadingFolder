@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="useGeneratedKeys" value="true" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="RoleEntity"
+			type="com.simple.reading.admin.entities.RoleEntity" />
+
+		<typeAlias alias="UserEntity"
+			type="com.simple.reading.admin.entities.UserEntity" />
+
+		<typeAlias alias="ArticalEntity"
+			type="com.simple.reading.admin.entities.ArticalEntity" />
+	</typeAliases>
+
+
+	<mappers>
+		<mapper resource="com/admin/data/maps/UserMapper.xml" />
+		<mapper resource="com/admin/data/maps/RoleMapper.xml" />
+		<mapper resource="com/admin/data/maps/ArticalMapper.xml" />
+	</mappers>
+</configuration>	

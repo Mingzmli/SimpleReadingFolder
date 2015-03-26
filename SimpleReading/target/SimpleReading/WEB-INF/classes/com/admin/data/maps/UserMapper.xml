@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.reading.admin.mapper.UserMapper">
+
+	<resultMap type="UserEntity" id="userResultMap">
+		<id property="id" column="UserId" />
+		<result property="username" column="UserName" />
+		<result property="password" column="UserPassword" />
+		<result property="roleLevel" column="RoleLevel" />
+		<collection property="ArticalEntities" column="UserId"
+			ofType="ArticalEntity"
+			select="com.simple.reading.admin.mapper.ArticalMapper.getArticalByUserId" />
+	</resultMap>
+
+	<select id="getUserById" parameterType="String" resultMap="userResultMap">
+
+		SELECT * from users
+		WHERE UserId = #{id}
+	</select>
+
+	<select id="getUserByUsername" parameterType="String" resultMap="userResultMap">
+
+		SELECT * from users
+		WHERE UserName = #{username}
+	</select>
+
+	<select id="getUserAll" resultMap="userResultMap">
+		SELECT * from users;
+	</select>
+
+	<insert id="addUser" parameterType="UserEntity">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select uuid()
+		</selectKey>
+		INSERT INTO
+		users (UserId,
+		UserName,
+		UserPassword,
+		RoleLevel)
+		VALUES
+		(#{id},
+		#{username},
+		#{password},
+		#{roleLevel})
+	</insert>
+
+	<select id="getUserByRoleLevel" parameterType="int" resultMap="userResultMap">
+
+		SELECT * from users
+		WHERE RoleLevel = #{roleLevel}
+	</select>
+
+	<update id="updateUserByUsername" parameterType="UserEntity">
+		UPDATE users
+		SET
+		users.UserPassword=#{password},
+		users.RoleLevel=#{roleLevel}
+		WHERE
+		users.UserName = #{username};
+	</update>
+
+
+	<delete id="deleteUserByUsername" parameterType="UserEntity">
+		DELETE FROM
+		users WHERE
+		users.UserName = #{username};
+	</delete>
+	
+	<delete id="deleteUserById" parameterType="UserEntity">
+		DELETE FROM
+		users WHERE
+		users.UserName = #{id};
+	</delete>
+</mapper>

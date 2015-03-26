@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.reading.admin.mapper.ArticalMapper">
+
+	<resultMap type="ArticalEntity" id="articalResultMap">
+		<id property="id" column="ArticalId" />
+		<result property="title" column="Title" />
+		<result property="content" column="Content" />
+		<result property="readSavePath" column="ReadSavePath" />
+		<result property="createdDate" column="CreatedDate" />
+		<result property="changedDate" column="ChangedDate" />
+		<result property="userId" column="UserId" />
+		<association property="userEntity" column="UserId"
+			select="com.simple.reading.admin.mapper.UserMapper.getUserById" />
+	</resultMap>
+
+	<select id="getAllArtical" parameterType="String" resultMap="articalResultMap">
+
+		SELECT * from articals
+	</select>
+
+
+	<select id="getArticalById" parameterType="String" resultMap="articalResultMap">
+
+		SELECT * from articals
+		WHERE ArticalId = #{id}
+	</select>
+
+	<select id="getArticalByUserId" parameterType="String"
+		resultMap="articalResultMap">
+
+		SELECT * from articals
+		WHERE UserId = #{userId}
+	</select>
+
+
+
+	<insert id="addArtical" parameterType="ArticalEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select uuid()
+		</selectKey>
+		INSERT INTO
+		articals (ArticalId,Title,
+		Content,ReadSavePath,
+		CreatedDate,ChangedDate,UserId)
+		VALUES (#{id},
+		#{title},
+		#{content},
+		#{readSavePath},
+		#{createdDate},
+		#{changedDate},
+		#{userId}
+		)
+	</insert>
+
+<!-- parameterType="ArticalEntity" -->
+	<delete id="deleteArtical" parameterType="String">
+		DELETE FROM articals WHERE
+		ArticalId = #{id}
+	</delete>
+
+
+</mapper>
