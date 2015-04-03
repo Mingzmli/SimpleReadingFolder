@@ -14,4 +14,6 @@ public interface ArticleDao {
 	public void deleteArticle(String id);
 	
 	public ArticleInfo getArticleById(String id);
+	
+	public void updateArticleById(ArticleInfo aritcleInfo);
 }

@@ -6,13 +6,17 @@
 		<id property="id" column="ArticalId" />
 		<result property="title" column="Title" />
 		<result property="content" column="Content" />
-		<result property="readSavePath" column="ReadSavePath" />
 		<result property="createdDate" column="CreatedDate" />
 		<result property="changedDate" column="ChangedDate" />
 		<result property="userId" column="UserId" />
 		<association property="userEntity" column="UserId"
 			select="com.simple.reading.admin.mapper.UserMapper.getUserById" />
 	</resultMap>
+
+	 <update id="updateArticalById" parameterType="ArticalEntity">  
+        update articals  set Title = #{title},   Content = #{content}, ChangedDate = #{changedDate}   where ArticalId = #{id}  
+    </update>  
+ 
 
 	<select id="getAllArtical" parameterType="String" resultMap="articalResultMap">
 
@@ -42,12 +46,11 @@
 		</selectKey>
 		INSERT INTO
 		articals (ArticalId,Title,
-		Content,ReadSavePath,
+		Content,
 		CreatedDate,ChangedDate,UserId)
 		VALUES (#{id},
 		#{title},
 		#{content},
-		#{readSavePath},
 		#{createdDate},
 		#{changedDate},
 		#{userId}

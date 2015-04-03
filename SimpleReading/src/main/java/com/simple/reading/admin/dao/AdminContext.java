@@ -1,6 +1,7 @@
 package com.simple.reading.admin.dao;
 
 import com.simple.reading.admin.mapper.ArticalMapper;
+import com.simple.reading.admin.mapper.PicMapper;
 import com.simple.reading.admin.mapper.RoleMapper;
 import com.simple.reading.admin.mapper.UserMapper;
 
@@ -16,6 +17,16 @@ public class AdminContext {
 	private RoleMapper roleMapper;
 	
 	private ArticalMapper articalMapper;
+	
+	private PicMapper picMapper;
+	
+	public PicMapper getPicMapper() {
+		return picMapper;
+	}
+
+	public void setPicMapper(PicMapper picMapper) {
+		this.picMapper = picMapper;
+	}
 
 	public UserMapper getUserMapper() {
 		return userMapper;

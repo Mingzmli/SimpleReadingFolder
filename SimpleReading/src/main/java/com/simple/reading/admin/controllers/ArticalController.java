@@ -2,6 +2,7 @@ package com.simple.reading.admin.controllers;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +41,9 @@ public class ArticalController {
 	private final static String ARTICLE_DELETE_REQUEST = CONTROLLER
 			+ "/deleteartical";
 
+	private final static String ARTICLE_UPDATE_REQUEST = CONTROLLER
+			+ "/updateartical";
+
 	private final static String UPLOAD_JSON = CONTROLLER + "/uploadJson";
 
 	// Redirect
@@ -52,6 +56,8 @@ public class ArticalController {
 	private final static String ARTICLE_INDEX_VIEW = "manageartical/artical-index";
 
 	private final static String ADD_ARTICAL_VIEW = "manageartical/artical-add";
+
+	private final static String UPDATE_ARTICAL_VIEW = "manageartical/artical-update";
 
 	private final static String UPLOAD_JSON_VIEW = "upload_json";
 
@@ -80,8 +86,9 @@ public class ArticalController {
 		modelAndView.setViewName(ADD_ARTICAL_VIEW);
 		return modelAndView;
 	}
-///ARTICLE_ADD_REQUEST
-	
+
+	// /ARTICLE_ADD_REQUEST
+
 	@RequestMapping(value = ARTICLE_ADD_REQUEST, method = { RequestMethod.POST })
 	public ModelAndView addArtical(Model model,
 			@ModelAttribute("articleInfo") ArticleInfo articleInfo,
@@ -89,7 +96,6 @@ public class ArticalController {
 
 		UserInfo userInfo = (UserInfo) ScopeHelper.getSesionValue(request,
 				"userInfo", true);
-        articleInfo.setRealSavePath( (String) ScopeHelper.getSesionValue(request, "readSavePath", true));
 		articleInfo.setUserId(userInfo.getId());
 
 		articleInfo.setTitle(SimpleHelper.htmlspecialchars(articleInfo
@@ -111,35 +117,53 @@ public class ArticalController {
 	 */
 	@RequestMapping(value = ARTICLE_DELETE_REQUEST, method = { RequestMethod.POST })
 	@ResponseBody
-	public JsonResponse deleteArtical(@RequestBody String deleteId,HttpServletRequest request) {
+	public JsonResponse deleteArtical(@RequestBody String deleteId,
+			HttpServletRequest request) {
 
 		try {
-			
-			ArticleInfo articleInfo = this.articleService.getArticleById(deleteId);
-			String savePath = articleInfo.getRealSavePath();
+
+			ArticleInfo articleInfo = this.articleService
+					.getArticleById(deleteId);
+		
 			this.articleService.deleteArticle(deleteId);
-			//String savePath = (String) ScopeHelper.getSesionValue(request, "readSavePath", true);
-			System.out.println(savePath);
-			File imgFile = new File(savePath);
-			imgFile.delete();
-			return new JsonResponse("ok", "ok");
 			
+			return new JsonResponse("ok", "ok");
+
 		} catch (Exception e) {
 			e.getStackTrace();
 			return new JsonResponse("fail", "fail");
 		}
 	}
-	
-	
-	public ModelAndView updateArticle(Model model,
-			@ModelAttribute("articleInfo") ArticleInfo articleInfo,
-			HttpServletRequest request){
-		
-		
-		return null;
+
+	@RequestMapping(value = ARTICLE_UPDATE_REQUEST, method = { RequestMethod.GET })
+	public String updateArticle(Model model, String id,
+			HttpServletRequest request) {
+
+		ArticleInfo articleInfo = this.articleService.getArticleById(id);
+		model.addAttribute(articleInfo);
+		return UPDATE_ARTICAL_VIEW;
+
 	}
-	
-	
+
+	@RequestMapping(value = ARTICLE_UPDATE_REQUEST, method = { RequestMethod.POST })
+	public String updateArticle(Model model,
+			@ModelAttribute("articleInfo") ArticleInfo articleInfo,
+			HttpServletRequest request) {
+
+		String requestId = articleInfo.getId();
+		ArticleInfo article =  this.articleService.getArticleById(requestId);
+		
+		article.setTitle(articleInfo.getTitle());
+		article.setContent(articleInfo.getContent());
+		article.setChangeDate(new Date());
+		
+		this.articleService.updateArticleById(article);
+		
+		model.addAttribute(articleInfo);
+
+		return UPDATE_ARTICAL_VIEW;
+
+	}
 
 	/*
 	 * for kindeditor

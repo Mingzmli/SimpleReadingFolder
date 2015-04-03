@@ -12,9 +12,10 @@ public interface ArticalMapper {
 	
 	public List<ArticalEntity> getArticalByUserId(String userId);
 	
-	public void updateArtical(ArticalEntity articalEntity);
+	public void updateArticalById(ArticalEntity articalEntity);
 	
 	public void deleteArtical(String id);
 	
 	public List<ArticalEntity> getAllArtical();
+
 }

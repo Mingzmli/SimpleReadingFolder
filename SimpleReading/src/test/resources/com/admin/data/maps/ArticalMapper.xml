@@ -13,6 +13,11 @@
 			select="com.simple.reading.admin.mapper.UserMapper.getUserById" />
 	</resultMap>
 
+	 <update id="updateArticalById" parameterType="ArticalEntity">  
+        update articals  set Title = #{title},   Content = #{content}, ChangedDate = #{changedDate}   where ArticalId = #{id}  
+    </update>  
+ 
+
 	<select id="getAllArtical" parameterType="String" resultMap="articalResultMap">
 
 		SELECT * from articals
@@ -52,8 +57,8 @@
 		)
 	</insert>
 
-
-	<delete id="deleteArtical" parameterType="ArticalEntity">
+<!-- parameterType="ArticalEntity" -->
+	<delete id="deleteArtical" parameterType="String">
 		DELETE FROM articals WHERE
 		ArticalId = #{id}
 	</delete>

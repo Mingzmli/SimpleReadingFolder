@@ -29,13 +29,14 @@
 		<property name="adminContext" ref="adminContext"></property>
 	</bean>
 
-	
+	<!-- 
 	<bean id="adminContext" class="com.simple.reading.admin.dao.AdminContext">
 		<property name="roleMapper" ref="roleMapper"></property>
 		<property name="userMapper" ref="userMapper"></property>
 		<property name="articalMapper" ref="articalMapper"></property>
+		<property name="picMapper" ref="picMapper"></property>
 	</bean>
-
+ -->
 	
 
 

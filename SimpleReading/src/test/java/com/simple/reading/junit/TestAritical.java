@@ -35,6 +35,18 @@ public class TestAritical {
 	@Autowired
 	public ArticleService articleService;
 
+	@Test
+	public void updateAriticle(){
+		
+		ArticalEntity articalEntity = articalMapper.getArticalById("fa52473d-d7a2-11e4-9757-005056c00008");
+		
+		articalEntity.setContent("testing3333333");
+		
+		articalMapper.updateArticalById(articalEntity);
+		
+		
+		
+	}
 	
 	
 	

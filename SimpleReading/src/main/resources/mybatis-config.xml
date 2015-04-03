@@ -13,6 +13,8 @@
 
 		<typeAlias alias="ArticalEntity"
 			type="com.simple.reading.admin.entities.ArticalEntity" />
+		<typeAlias alias="PicEntity"
+			type="com.simple.reading.admin.entities.PicEntity" />
 	</typeAliases>
 
 
@@ -20,5 +22,6 @@
 		<mapper resource="com/admin/data/maps/UserMapper.xml" />
 		<mapper resource="com/admin/data/maps/RoleMapper.xml" />
 		<mapper resource="com/admin/data/maps/ArticalMapper.xml" />
+		<mapper resource="com/admin/data/maps/PicMapper.xml" />
 	</mappers>
 </configuration>	

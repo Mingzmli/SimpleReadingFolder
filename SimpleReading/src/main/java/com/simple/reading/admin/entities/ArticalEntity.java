@@ -17,7 +17,6 @@ public class ArticalEntity implements Serializable{
 	
 	private Date changedDate;
 	
-	private String readSavePath;
 	/*
 	 * foreign key
 	 */
@@ -26,14 +25,6 @@ public class ArticalEntity implements Serializable{
 	private UserEntity userEntity;
 
 	
-	public String getReadSavePath() {
-		return readSavePath;
-	}
-
-	public void setReadSavePath(String readSavePath) {
-		this.readSavePath = readSavePath;
-	}
-
 	public Date getChangedDate() {
 		return changedDate;
 	}

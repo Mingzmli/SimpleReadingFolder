@@ -96,12 +96,11 @@ while (itr.hasNext()) {
 			out.println(getError("上传文件扩展名是不允许的扩展名。\n只允许" + extMap.get(dirName) + "格式。"));
 			return;
 		}
-
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
 		String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
 		try{
 			File uploadedFile = new File(savePath, newFileName);
-			ScopeHelper.setSessionValue(request, "readSavePath", savePath+newFileName);
 			item.write(uploadedFile);
 		}catch(Exception e){
 			out.println(getError("上传文件失败。"));

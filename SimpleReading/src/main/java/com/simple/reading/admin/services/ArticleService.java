@@ -14,4 +14,8 @@ public interface ArticleService {
 	
 	public ArticleInfo getArticleById(String id);
 	
+	public void updateArticleById(ArticleInfo aritcleInfo);
+	
+	
+	
 }

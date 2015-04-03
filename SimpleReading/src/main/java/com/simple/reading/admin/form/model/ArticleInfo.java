@@ -16,20 +16,11 @@ public class ArticleInfo {
 	
 	private Date changeDate;
 	
-	private String realSavePath;
-	
 	private String userId;
 	
 	private UserInfo user;
 
-	
-	public String getRealSavePath() {
-		return realSavePath;
-	}
 
-	public void setRealSavePath(String realSavePath) {
-		this.realSavePath = realSavePath;
-	}
 
 	public String getId() {
 		return id;
@@ -96,7 +87,7 @@ public class ArticleInfo {
 		this.setContent(articalEntity.getContent());
 		this.setCreateDate(articalEntity.getCreatedDate());
 		this.setChangeDate(articalEntity.getChangedDate());
-		this.setRealSavePath(articalEntity.getReadSavePath());
+
 
 	}
 	
@@ -108,7 +99,7 @@ public class ArticleInfo {
 		articalEntity.setContent(this.getContent());
 		articalEntity.setCreatedDate(this.getCreateDate());
 		articalEntity.setChangedDate(this.getChangeDate());
-		articalEntity.setReadSavePath(this.getRealSavePath());
+
 	}
 	
 

@@ -44,6 +44,13 @@ public class ArticleServiceHandlerImpl implements ArticleServiceHandle{
 		
 		return this.articleDao.getArticleById(id);
 	}
+
+	@Override
+	public void updateArticleById(ArticleInfo aritcleInfo) {
+		// TODO Auto-generated method stub
+		aritcleInfo.setChangeDate(new Date());
+		this.articleDao.updateArticleById(aritcleInfo);
+	}
 	
 	
 	

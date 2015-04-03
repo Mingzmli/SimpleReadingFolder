@@ -42,4 +42,10 @@ public class ArticleServiceImpl implements ArticleService{
 		return this.articleServiceHandle.getArticleById(id);
 	}
 
+	@Override
+	public void updateArticleById(ArticleInfo aritcleInfo) {
+		// TODO Auto-generated method stub
+		this.articleServiceHandle.updateArticleById(aritcleInfo);
+	}
+
 }

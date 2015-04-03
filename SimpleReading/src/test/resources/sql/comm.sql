@@ -28,7 +28,7 @@ insert into roles (RoleId,RoleLevel,RoleName) values (uuid(),3,"test level 3");
 insert into users(UserId,UserName,UserPassword,RoleLevel) values(uuid(),"SimpleReadingAdmin",MD5(MD5('admin9901828928')),1);
 
 
-create table Users(
+create table users(
 
 	UserId varchar(36) CHARACTER SET utf8  NOT NULL DEFAULT '',
 
@@ -42,15 +42,13 @@ create table Users(
 	
 );
 
-create table Articals(
+create table articals(
 
 	ArticalId varchar(36) CHARACTER SET utf8  NOT NULL DEFAULT '',
 
 	Title VARCHAR(100) not null,
 	
 	Content text ,
-	
-	ReadSavePath VARCHAR(200) not null,
 	
 	CreatedDate Date not null,
 	
@@ -62,4 +60,13 @@ create table Articals(
 	/*
 	CONSTRAINT users_fk foreign key(UserId) references Users(UserId) on delete cascade
 	*/
+)
+
+create table pics(
+
+	PicId varchar(36) CHARACTER SET utf8  NOT NULL DEFAULT '',
+	
+	URL VARCHAR(200),
+
+	Available TINYINT
 )

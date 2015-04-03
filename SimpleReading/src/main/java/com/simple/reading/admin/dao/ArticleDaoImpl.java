@@ -66,4 +66,15 @@ public class ArticleDaoImpl implements ArticleDao{
 		articleInfo.form(articalEntity);		
 		return articleInfo;
 	}
+
+	@Override
+	public void updateArticleById(ArticleInfo aritcleInfo) {
+		// TODO Auto-generated method stub
+		ArticalEntity articalEntity = new ArticalEntity();
+		
+		aritcleInfo.to(articalEntity);
+		
+		this.adminContext.getArticalMapper().updateArticalById(articalEntity);
+			
+	}
 }

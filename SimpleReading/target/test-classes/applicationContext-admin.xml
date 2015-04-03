@@ -34,6 +34,7 @@
 		<property name="roleMapper" ref="roleMapper"></property>
 		<property name="userMapper" ref="userMapper"></property>
 		<property name="articalMapper" ref="articalMapper"></property>
+		<property name="picMapper" ref="picMapper"></property>
 	</bean>
 
 	

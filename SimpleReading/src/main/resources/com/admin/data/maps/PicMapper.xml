@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.reading.admin.mapper.PicMapper">
+
+	<resultMap type="PicEntity" id="picResultMap">
+		<id property="id" column="PicId" />
+		<result property="url" column="URL" />
+		<result property="available" column="Available" />
+	</resultMap>
+
+	<select id="getPicByUrl" parameterType="String" resultMap="picResultMap">
+
+		SELECT * from pics
+		WHERE URL = #{url}
+	</select>
+
+	<insert id="addPic" parameterType="PicEntity">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select uuid()
+		</selectKey>
+		INSERT INTO
+		pics (PicId,
+		URL,
+		Available)
+		VALUES
+		(#{id},
+		#{url},
+		#{available})
+	</insert>
+
+	<update id="updatePicByUrl" parameterType="PicEntity">
+		UPDATE pics
+		SET
+		Available=#{available}
+		WHERE
+		URL = #{url}
+	</update>
+
+<!-- 
+	<delete id="deleteUserByUsername" parameterType="UserEntity">
+		DELETE FROM
+		users WHERE
+		users.UserName = #{username};
+	</delete>
+	
+	<delete id="deleteUserById" parameterType="UserEntity">
+		DELETE FROM
+		users WHERE
+		users.UserName = #{id};
+	</delete>
+	 -->
+</mapper>

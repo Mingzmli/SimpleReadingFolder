@@ -1,3 +1,4 @@
+D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\mapper\PicMapper.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\entities\ArticalEntity.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\form\model\RoleInfo.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\services\impl\ArticleServiceHandlerImpl.java
@@ -23,6 +24,8 @@ D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simpl
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\mapper\UserMapper.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\form\model\UserInfo.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\utils\VerifyCodeServlet.java
+D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\form\model\PicInfo.java
+D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\entities\PicEntity.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\form\model\ArticleInfo.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\services\impl\AdminServiceHandlerImpl.java
 D:\DevSoftware\ecplise\J2EE\EcpliseProject\SimpleReading\src\main\java\com\simple\reading\admin\entities\RoleEntity.java
