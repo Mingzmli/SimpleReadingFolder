@@ -23,7 +23,7 @@
 	<import resource="applicationContext-aop-controller.xml"/>
 	 -->
 	<import resource="applicationContext-artical.xml"/>
-
+	<import resource="applicationContext-pic.xml"/>
 	
 	 
 

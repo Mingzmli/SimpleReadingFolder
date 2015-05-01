@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,java.io.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="org.apache.commons.fileupload.*" %>
-<%@ page import="org.apache.commons.fileupload.disk.*" %>
-<%@ page import="org.apache.commons.fileupload.servlet.*" %>
-<%@ page import="org.json.simple.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.io.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="org.apache.commons.fileupload.*"%>
+<%@ page import="org.apache.commons.fileupload.disk.*"%>
+<%@ page import="org.apache.commons.fileupload.servlet.*"%>
+<%@ page import="org.json.simple.*"%>
+<%@ page import="com.simple.reading.admin.services.*" %>
+<%@ page import="com.simple.reading.utils.*"%>
 <%
 
 /**
@@ -16,10 +19,10 @@
  */
 
 //文件保存目录路径
-String savePath = pageContext.getServletContext().getRealPath("/") + "/kindeditor/attached/";
+String savePath = pageContext.getServletContext().getRealPath("/") + "WEB-INF/attached/";
 
 //文件保存目录URL
-String saveUrl  = request.getContextPath() + "/kindeditor/attached/";
+String saveUrl  = request.getContextPath() + "/attached/";
 
 //定义允许上传的文件扩展名
 HashMap<String, String> extMap = new HashMap<String, String>();
@@ -94,7 +97,7 @@ while (itr.hasNext()) {
 			out.println(getError("上传文件扩展名是不允许的扩展名。\n只允许" + extMap.get(dirName) + "格式。"));
 			return;
 		}
-
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
 		String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
 		try{

@@ -70,11 +70,12 @@ public class TestAritical {
 		UserInfo userInfo = new UserInfo();
 
 		userInfo.setUsername("SimpleReadingAdmin");
-		;
 
 		UserInfo userInfoDb = adminServcie.getUser(userInfo);
 
 		ArticleInfo articleInfo = new ArticleInfo();
+		
+		System.out.println(articleInfo.getId());
 
 		articleInfo.setTitle("Title.......");
 

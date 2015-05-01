@@ -42,7 +42,7 @@ create table users(
 	
 );
 
-create table articals(
+create table simplereading.articals(
 
 	ArticalId varchar(36) CHARACTER SET utf8  NOT NULL DEFAULT '',
 
@@ -62,11 +62,15 @@ create table articals(
 	*/
 )
 
-create table pics(
+create table simplereading.pics(
 
 	PicId varchar(36) CHARACTER SET utf8  NOT NULL DEFAULT '',
 	
 	URL VARCHAR(200),
+	
+	SavePath  VARCHAR(200),
 
-	Available TINYINT
+	Available TINYINT,
+	
+	ArticleId  varchar(36) CHARACTER SET utf8
 )

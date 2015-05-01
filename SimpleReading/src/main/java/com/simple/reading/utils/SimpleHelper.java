@@ -1,5 +1,7 @@
 package com.simple.reading.utils;
 
+import java.util.UUID;
+
 
 
 public class SimpleHelper {	
@@ -12,5 +14,8 @@ public class SimpleHelper {
 		return str;
 	}
 	
+	public static String getUUID(){
+		return UUID.randomUUID().toString();
+	}
 	
 }

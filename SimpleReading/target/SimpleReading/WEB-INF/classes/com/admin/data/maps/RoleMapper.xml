@@ -20,11 +20,10 @@
 	<select id="getRoleAll" resultType="RoleEntity">
 		SELECT * from roles;
 	</select>
-
-	<insert id="addRole" parameterType="RoleEntity">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+<!-- 	<selectKey keyProperty="id" resultType="String" order="BEFORE">
 			select uuid()
-		</selectKey>
+		</selectKey> -->
+	<insert id="addRole" parameterType="RoleEntity">	
 		INSERT INTO
 		roles (RoleId,
 		RoleLevel,

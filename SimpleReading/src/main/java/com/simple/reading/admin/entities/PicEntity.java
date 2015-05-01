@@ -1,5 +1,7 @@
 package com.simple.reading.admin.entities;
 
+import java.util.UUID;
+
 import com.simple.reading.admin.form.model.PicInfo;
 
 public class PicEntity {
@@ -8,9 +10,20 @@ public class PicEntity {
 	
 	private String url;
 	
+	private String savePath;
+	
 	private boolean available;
 	
+	private String articleId;
 	
+		
+
+	public String getArticleId() {
+		return articleId;
+	}
+	public void setArticleId(String articleId) {
+		this.articleId = articleId;
+	}
 	public String getId() {
 		return id;
 	}
@@ -32,11 +45,20 @@ public class PicEntity {
 	}
 	
 	
+	public String getSavePath() {
+		return savePath;
+	}
+	public void setSavePath(String savePath) {
+		this.savePath = savePath;
+	}
 	public void toDTO(PicInfo picInfo)
 	{
 		picInfo.setId(this.getId());
 		picInfo.setUrl(this.getUrl());
 		picInfo.setAvailable(this.isAvailable());
+		picInfo.setSavePath(this.getSavePath());
+
+		picInfo.setArticleId(this.getArticleId());
 	}
 	
 	public void fromDTO(PicInfo picInfo)
@@ -44,6 +66,8 @@ public class PicEntity {
 		this.setId(picInfo.getId());
 		this.setUrl(picInfo.getUrl());
 		this.setAvailable(picInfo.isAvailable());
+		this.setSavePath(picInfo.getSavePath());		
+		this.setArticleId(picInfo.getArticleId());
 	}
 	
 }

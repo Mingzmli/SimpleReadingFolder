@@ -38,12 +38,8 @@
 	</select>
 
 
-
-	<insert id="addArtical" parameterType="ArticalEntity"
-		useGeneratedKeys="true" keyProperty="id">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
-			select uuid()
-		</selectKey>
+<!-- keyProperty="id" -->
+	<insert id="addArtical" parameterType="ArticalEntity" >
 		INSERT INTO
 		articals (ArticalId,Title,
 		Content,

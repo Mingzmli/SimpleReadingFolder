@@ -17,5 +17,6 @@ public interface ArticalMapper {
 	public void deleteArtical(String id);
 	
 	public List<ArticalEntity> getAllArtical();
+	
 
 }

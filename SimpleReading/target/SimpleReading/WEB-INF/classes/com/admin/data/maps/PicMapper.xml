@@ -5,7 +5,9 @@
 	<resultMap type="PicEntity" id="picResultMap">
 		<id property="id" column="PicId" />
 		<result property="url" column="URL" />
+		<result property="savePath" column="SavePath" />
 		<result property="available" column="Available" />
+		<result property="articleId" column="ArticleId" />
 	</resultMap>
 
 	<select id="getPicByUrl" parameterType="String" resultMap="picResultMap">
@@ -13,25 +15,28 @@
 		SELECT * from pics
 		WHERE URL = #{url}
 	</select>
+	
+	<select id="getPicByArticleId" parameterType="String" resultMap="picResultMap">
+
+		SELECT * from pics
+		WHERE ArticleId = #{articleId}
+	</select>
 
 	<insert id="addPic" parameterType="PicEntity">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
-			select uuid()
-		</selectKey>
 		INSERT INTO
 		pics (PicId,
 		URL,
-		Available)
+		Available,SavePath,ArticleId)
 		VALUES
 		(#{id},
 		#{url},
-		#{available})
+		#{available},#{savePath},#{articleId})
 	</insert>
 
 	<update id="updatePicByUrl" parameterType="PicEntity">
 		UPDATE pics
 		SET
-		Available=#{available},
+		Available=#{available}
 		WHERE
 		URL = #{url}
 	</update>

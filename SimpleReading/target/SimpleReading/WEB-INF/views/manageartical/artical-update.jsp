@@ -8,6 +8,7 @@
 <head>
 <meta charset="utf-8" />
 <title>KindEditor JSP</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.3.js"></script>
 <link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
 <link rel="stylesheet" href="../kindeditor/plugins/code/prettify.css" />
 <script charset="utf-8" src="../kindeditor/kindeditor.js"></script>
@@ -21,7 +22,8 @@
 								'textarea[name="content"]',
 								{
 									cssPath : '../kindeditor/plugins/code/prettify.css',
-									uploadJson : '${pageContext.request.contextPath}/simpleslty6435simpleartical/uploadJson',
+									uploadJson : '${pageContext.request.contextPath}/simpleslty6435simpleartical/uploadJson?id='+$("#id").val(),
+									data:{"id":$("#id").val()},
 									fileManagerJson : '../kindeditor/jsp/file_manager_json.jsp',
 									allowFileManager : true,
 									afterCreate : function() {
@@ -43,19 +45,14 @@
 <body>
 	<h1>Update Artical</h1>
 	<form name="addform" method="POST" action="${pageContext.request.contextPath}/simpleslty6435simpleartical/updateartical">
+		
 		<table>
 		
-			<tr>
-				<td><input type="hidden" name="id" value="${articleInfo.id}"/></td>
+		  <tr>
+				<td></td>
+				<td><input type="hidden" id="id" name="id" value="${articleInfo.id}"/></td>
 			</tr>
-				<!-- 
-			<tr>
-				<td><input type="hidden" name="createDate" value="${createDate}"/></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="changeDate" value="${changeDate}"/></td>
-			</tr>
-				 -->
+			
 			<tr>
 				<td>Title</td>
 				<td><input type="text" name="title" value="${articleInfo.title}"></td>

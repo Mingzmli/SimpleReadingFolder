@@ -65,6 +65,7 @@ $(document).ready(function() {
     		<tr>
     			<td style="width:500px">${articleInfo.title}</td>
     			<td> <a href="${pageContext.request.contextPath}/simpleslty6435simpleartical/updateartical?id=${articleInfo.id}" src="">修改</a> </td>
+    			<td><input type="hidden" name="hdArticleId" value="${articleInfo.id}" /> </td>
     			<td> <button  value="${articleInfo.id}" name="btnDelete">删除</button> </td>
     		</tr>
     	</c:forEach>

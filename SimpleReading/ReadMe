@@ -7,3 +7,6 @@ Artical: http://localhost:8080/SimpleReading/simpleslty6435simpleartical/{action
 Admin: http://localhost:8080/SimpleReading/simplekuy6927simpleadmin/{action}
 Login: http://localhost:8080/SimpleReading/simplelsy3618simplelogin/{action}
 
+pic data can insert into db when ajax upload
+
+requirement is need to check data in when create

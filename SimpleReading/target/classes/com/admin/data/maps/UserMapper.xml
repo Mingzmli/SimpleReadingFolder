@@ -28,10 +28,10 @@
 		SELECT * from users;
 	</select>
 
-	<insert id="addUser" parameterType="UserEntity">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+<!-- <selectKey keyProperty="id" resultType="String" order="BEFORE">
 			select uuid()
-		</selectKey>
+		</selectKey> -->
+	<insert id="addUser" parameterType="UserEntity">
 		INSERT INTO
 		users (UserId,
 		UserName,

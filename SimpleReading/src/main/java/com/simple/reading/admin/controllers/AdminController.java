@@ -14,50 +14,51 @@ import com.simple.reading.admin.services.AdminServcie;
 @Controller
 @RequestMapping(value = "/simplekuy6927simpleadmin")
 public class AdminController {
-
-	@Autowired
-	private AdminServcie adminServcie;
-	
-	public AdminServcie getAdminServcie() {
-		return adminServcie;
-	}
-	
-	public void setAdminServcie(AdminServcie adminServcie) {
-		this.adminServcie = adminServcie;
-	}
-
-	/*
-	 * index get request
-	 */
-	@RequestMapping(value = "/index", method = { RequestMethod.GET })
-	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView();
-		// modelAndView.addObject("message", "Hello World! Ming");
-		modelAndView.setViewName("manageadmin/index");
-		return modelAndView;
-	}
-
-	/*
-	 * Manage User get request
-	 */
-	@RequestMapping(value = "/mangeuser", method = { RequestMethod.GET })
-	public ModelAndView workforuser() {
-		
-		List<UserInfo> userInfos = adminServcie.getUserList();
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("userInfos", userInfos);
-		modelAndView.setViewName("manageadmin/mangeuser");
-		return modelAndView;
-	}
-	
-	/*
-	 * Manage Role get request
-	 */
-	@RequestMapping(value = "/mangerole", method = { RequestMethod.GET })
-	public ModelAndView workforrole() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("message", "Hello World! Ming");
-		modelAndView.setViewName("manageadmin/mangerole");
-		return modelAndView;
-	}
+//
+//	@Autowired
+//	private AdminServcie adminServcie;
+//	
+//	public AdminServcie getAdminServcie() {
+//		return adminServcie;
+//	}
+//	
+//	public void setAdminServcie(AdminServcie adminServcie) {
+//		this.adminServcie = adminServcie;
+//	}
+//
+//	/*
+//	 * index get request
+//	 */
+//	@RequestMapping(value = "/index", method = { RequestMethod.GET })
+//	public ModelAndView index() {
+//		ModelAndView modelAndView = new ModelAndView();
+//		// modelAndView.addObject("message", "Hello World! Ming");
+//		modelAndView.setViewName("manageadmin/index");
+//		return modelAndView;
+//	}
+//
+//	/*
+//	 * Manage User get request
+//	 */
+//	@RequestMapping(value = "/mangeuser", method = { RequestMethod.GET })
+//	public ModelAndView workforuser() {
+//		
+//		List<UserInfo> userInfos = adminServcie.getUserList();
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.addObject("userInfos", userInfos);
+//		modelAndView.setViewName("manageadmin/mangeuser");
+//		return modelAndView;
+//	}
+//	
+//	/*
+//	 * Manage Role get request
+//	 */
+//	@RequestMapping(value = "/mangerole", method = { RequestMethod.GET })
+//	public ModelAndView workforrole() {
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.addObject("message", "Hello World! Ming");
+//		modelAndView.setViewName("manageadmin/mangerole");
+//		return modelAndView;
+//	}
+//	
 }

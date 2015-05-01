@@ -1,6 +1,7 @@
 package com.simple.reading.admin.form.model;
 
 import java.util.Date;
+import java.util.UUID;
 
 import com.simple.reading.admin.entities.ArticalEntity;
 
@@ -20,6 +21,9 @@ public class ArticleInfo {
 	
 	private UserInfo user;
 
+	public ArticleInfo(){
+		this.id = UUID.randomUUID().toString();
+	}
 
 
 	public String getId() {
